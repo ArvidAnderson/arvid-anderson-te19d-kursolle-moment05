@@ -22,15 +22,16 @@ def login_form():
     if event == 'Login':
         email = values[0]
         password = values[1]
-        login.check_login_details(email, password)
+        if login.check_login_details(email, password) == 'continue':
+            pass
+        else:
+            sg.Popup("Login failed, please try again with the right credentials")
+            login_form()
 
 
     if event == 'No account? Register here':
         window.close()
         gui_register.register_form()
 
-
-
-    print(event, values[0], values[1])    # the input data looks like a simple list when auto numbered
 
     window.close()

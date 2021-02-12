@@ -8,7 +8,6 @@ from colorama import Fore, Back, Style
 init()
 
 def register_form():
-    print(Fore.RED + "Starting register form!")
     sg.theme('DarkTeal4')   # Add a touch of color
     # All the stuff inside your window.
     layout = [
@@ -34,13 +33,12 @@ def register_form():
         phone = values[4]
         address = values[5]
 
-        file_name = fname + "_" + lname + "_" + email + ".csv".lower()
+        file_name = fname + "_" + lname + "_" + email + ".csv"
 
         if register.validate_user_file(file_name) == "continue":
             register.generate_user_file(file_name)
             register.add_user_content(file_name, fname, lname, email, password, phone, address)
             window.close()
-            sg.Popup("Your registration has now been completed!")
             gui_login.login_form()
         else:
             sg.Popup("This user alredy exists, try using your credentials on the login form instead!")
@@ -49,5 +47,4 @@ def register_form():
         window.close()
         gui_login.login_form()
 
-    print(event, values[0], values[1], values[2], values[3])
     window.close()
