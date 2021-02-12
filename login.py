@@ -1,5 +1,7 @@
 from pathlib import Path
 import csv
+import utilities
+
 
 def get_csv_files():
     csv_list = []
@@ -11,13 +13,14 @@ def get_csv_files():
 
 def check_login_details(email, password):
     csv_list = get_csv_files()
-    for user_data in csv_list:
-        with open(user_data, "r") as f:
+    for i in csv_list:
+        with open(i, "r") as f:
             data = f.read()
-            data = data.split(",")
-            email_in_data = data[2]
-            password_in_data = data[3]
+            data_list = data.split(",")
+            email_in_data = data_list[2]
+            password_in_data = data_list[3]
             if email_in_data == email and password_in_data == password:
-                return "continue"
+                utilities.set_current_user(i)
+                return True
 
 

@@ -35,7 +35,7 @@ def register_form():
 
         file_name = fname + "_" + lname + "_" + email + ".csv"
 
-        if register.validate_user_file(file_name) == "continue":
+        if register.validate_user_file(file_name) == True:
             register.generate_user_file(file_name)
             register.add_user_content(file_name, fname, lname, email, password, phone, address)
             window.close()

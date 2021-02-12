@@ -2,6 +2,7 @@
 import PySimpleGUI as sg
 import gui_register
 import login
+import utilities
 from colorama import init
 from colorama import Fore, Back, Style
 init()
@@ -22,8 +23,9 @@ def login_form():
     if event == 'Login':
         email = values[0]
         password = values[1]
-        if login.check_login_details(email, password) == 'continue':
-            pass
+        if login.check_login_details(email, password) == True:
+            print("Success")
+            print(utilities.get_current_user())
         else:
             sg.Popup("Login failed, please try again with the right credentials")
             login_form()
