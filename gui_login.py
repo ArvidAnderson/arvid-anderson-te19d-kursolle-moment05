@@ -1,6 +1,7 @@
 
 import PySimpleGUI as sg
 import gui_register
+import login
 from colorama import init
 from colorama import Fore, Back, Style
 init()
@@ -18,7 +19,12 @@ def login_form():
 
     window = sg.Window('SCAM-BANK™', layout)
     event, values = window.read()
-    #No account? Register here button
+    if event == 'Login':
+        email = values[0]
+        password = values[1]
+        login.check_login_details(email, password)
+
+
     if event == 'No account? Register here':
         window.close()
         gui_register.register_form()
