@@ -3,6 +3,7 @@ import PySimpleGUI as sg
 import gui_register
 import login
 import utilities
+import gui_profile
 from colorama import init
 from colorama import Fore, Back, Style
 init()
@@ -26,6 +27,8 @@ def login_form():
         if login.check_login_details(email, password) == True:
             print("Success")
             print(utilities.get_current_user())
+            window.close()
+            gui_profile.profile_page()
         else:
             sg.Popup("Login failed, please try again with the right credentials")
             login_form()

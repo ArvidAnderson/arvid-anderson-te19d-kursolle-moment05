@@ -21,5 +21,3 @@ def profile_page():
 
 
     window.close()
-
-profile_page()
