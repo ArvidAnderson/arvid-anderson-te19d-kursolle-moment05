@@ -1,5 +1,4 @@
 import PySimpleGUI as sg      
-import gui
 import gui_deposit
 import gui_withdraw
 import utilities
