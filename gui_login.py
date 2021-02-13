@@ -25,8 +25,6 @@ def login_form():
         email = values[0]
         password = values[1]
         if login.check_login_details(email, password) == True:
-            print("Success")
-            print(utilities.get_current_user())
             window.close()
             gui_profile.profile_page()
         else:

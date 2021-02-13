@@ -1,12 +1,14 @@
 import PySimpleGUI as sg      
 import gui
 import utilities
-file_name = utilities.get_current_user()
-print(file_name)
+
 
 
 def profile_page():
-    sg.theme('DarkTeal4')    # Keep things interesting for your users
+
+    print(utilities.get_current_user_str())
+
+    sg.theme('DarkTeal4')
 
     layout = [[sg.Text('SCAM-BANK™ LLC', size=(30, 1), font='Courier 20')],
             [sg.Text("Welcome")],       
@@ -15,8 +17,7 @@ def profile_page():
     window = sg.Window('SCAM-BANK™', layout)      
 
     while True:                             # The Event Loop
-        event, values = window.read() 
-        print(event, values)       
+        event, values = window.read()
         if event == sg.WIN_CLOSED or event == 'Exit':
             break      
         

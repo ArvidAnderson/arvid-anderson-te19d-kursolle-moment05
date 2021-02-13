@@ -1,4 +1,5 @@
 # DÅLIGT STÄLLE FÖR VIKTIGT LISTA
+global current_user
 current_user = []
 
 
@@ -47,6 +48,13 @@ def get_address(file_name):
 def get_current_user():
     return current_user
 
+def get_current_user_str():
+    current_user_list = current_user
+    str_creator = " "
+    file_name = str_creator.join(current_user_list)
+    return file_name
+
 # SETTERS
 def set_current_user(file_name):
     current_user.append(file_name)
+
