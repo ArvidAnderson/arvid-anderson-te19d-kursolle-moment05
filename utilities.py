@@ -1,4 +1,8 @@
 # DÅLIGT STÄLLE FÖR VIKTIGT LISTA
+
+import csv
+
+
 global current_user
 current_user = []
 
@@ -45,6 +49,11 @@ def get_address(file_name):
     address = csv_list[5]
     return address
 
+def get_balance(file_name):
+    csv_list = generate_list(file_name)
+    balance = csv_list[6]
+    return balance
+
 def get_current_user():
     return current_user
 
@@ -57,4 +66,9 @@ def get_current_user_str():
 # SETTERS
 def set_current_user(file_name):
     current_user.append(file_name)
+
+def set_balance(amount):
+    with open("user_user_user.csv", "r+") as f:
+        file = csv.writer(f)
+        file.writerow([2, amount])
 
