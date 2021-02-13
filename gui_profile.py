@@ -1,9 +1,5 @@
 import PySimpleGUI as sg      
-import gui_deposit
-import gui_withdraw
-import utilities
-
-
+import gui_deposit, gui_withdraw, gui_transactions, utilities
 
 def profile_page():
 
@@ -19,8 +15,7 @@ def profile_page():
             [sg.Button('Deposit'), sg.Button('Withdraw'), sg.Button('Transactions'), sg.Button('Terminate Account'), sg.Exit()]]      
 
     window = sg.Window('SCAM-BANK™', layout)      
-
-    while True:                             # The Event Loop
+    while True:
         event, values = window.read()
         if event == sg.WIN_CLOSED or event == 'Exit':
             break      
@@ -30,6 +25,9 @@ def profile_page():
         if event == 'Withdraw':
             window.close()
             gui_withdraw.withdraw_form()
+        if event == 'Transactions':
+            window.close()
+            gui_transactions.transaction_view()
         if event == 'Terminate Account':
             sg.popup("Are you sure you want to terminate your account?", button_type=1)
             #Add actions
