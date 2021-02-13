@@ -22,12 +22,12 @@ def deposit_form():
         amount = values[0]
         try:
             amount_int = int(amount)
-            utilities.set_balance(file_name, amount_int)
+            utilities.deposit_balance(file_name, amount_int)
             window.close()
             gui_profile.profile_page()
         except:
-            sg.popup("You can only deposit money (numbers) not text/words")
             window.close()
+            sg.popup("You can only deposit money (numbers) not text/words")
             deposit_form()
     if event == 'Back':
         window.close()

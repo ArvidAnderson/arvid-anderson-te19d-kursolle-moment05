@@ -70,7 +70,25 @@ def set_current_user(file_name):
 
 def set_balance(file_name, amount):
     csv_list = generate_list(file_name)
+    csv_list[6] = int(amount)
+    print(csv_list[6])
+    with open(file_name, "r+") as f:
+        f.truncate()
+        file = csv.writer(f)
+        file.writerow(csv_list)
+
+def deposit_balance(file_name, amount):
+    csv_list = generate_list(file_name)
     csv_list[6] = int(csv_list[6]) + int(amount)
+    print(csv_list[6])
+    with open(file_name, "r+") as f:
+        f.truncate()
+        file = csv.writer(f)
+        file.writerow(csv_list)
+
+def withdraw_balance(file_name, amount):
+    csv_list = generate_list(file_name)
+    csv_list[6] = int(csv_list[6]) - int(amount)
     print(csv_list[6])
     with open(file_name, "r+") as f:
         f.truncate()

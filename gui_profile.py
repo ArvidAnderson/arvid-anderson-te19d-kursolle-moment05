@@ -1,6 +1,7 @@
 import PySimpleGUI as sg      
 import gui
 import gui_deposit
+import gui_withdraw
 import utilities
 
 
@@ -27,6 +28,9 @@ def profile_page():
         if event == 'Deposit':
             window.close()
             gui_deposit.deposit_form()
+        if event == 'Withdraw':
+            window.close()
+            gui_withdraw.withdraw_form()
         if event == 'Terminate Account':
             sg.popup("Are you sure you want to terminate your account?", button_type=1)
             #Add actions
