@@ -1,7 +1,7 @@
 # DÅLIGT STÄLLE FÖR VIKTIGT LISTA
 
 import csv
-
+import re
 
 global current_user
 current_user = []
@@ -11,7 +11,8 @@ current_user = []
 def generate_list(file_name):
     with open(file_name, "r") as f:
         csv_list = f.read()
-        csv_list = csv_list.split(",")
+        #csv_list = csv_list.split(",")
+        csv_list = re.split(',|\n', csv_list) 
     return csv_list
 
 def get_fname(file_name):
@@ -67,8 +68,9 @@ def get_current_user_str():
 def set_current_user(file_name):
     current_user.append(file_name)
 
-def set_balance(amount):
-    with open("user_user_user.csv", "r+") as f:
-        file = csv.writer(f)
-        file.writerow([2, amount])
-
+def set_balance(file_name, amount):
+    csv_list = generate_list(file_name)
+    csv_list[6] = amount
+    print(csv_list[6])
+    csv
+set_balance("user_user_user.csv", 1000)
