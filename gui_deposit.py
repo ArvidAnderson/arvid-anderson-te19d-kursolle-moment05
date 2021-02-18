@@ -5,7 +5,8 @@ import gui_profile
 
 def deposit_form():
 
-    file_name = (utilities.get_current_user_str())
+    file_name = utilities.get_current_user_str()
+    transactions_name = utilities.get_transactions_name()
 
     sg.theme('DarkTeal4')   # Add a touch of color
     # All the stuff inside your window.
@@ -23,6 +24,7 @@ def deposit_form():
         try:
             amount_int = int(amount)
             utilities.deposit_balance(file_name, amount_int)
+            utilities.add_deposit_transaction(transactions_name, amount_int)
             window.close()
             gui_profile.profile_page()
         except:

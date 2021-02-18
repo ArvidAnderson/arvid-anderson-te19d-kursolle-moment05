@@ -4,7 +4,8 @@ import utilities
 import gui_profile
 
 def withdraw_form():
-    file_name = (utilities.get_current_user_str())
+    file_name = utilities.get_current_user_str()
+    transactions_name = utilities.get_transactions_name()
     balance = utilities.get_balance(file_name)
     balance_int = int(balance)
 
@@ -30,6 +31,8 @@ def withdraw_form():
         
         if amount_int < balance_int+1:
             utilities.withdraw_balance(file_name, amount_int)
+            utilities.add_withdrawal_transaction(transactions_name, amount_int)
+            
             window.close()
             gui_profile.profile_page()
         else:

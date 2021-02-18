@@ -34,14 +34,18 @@ def register_form():
         address = values[5]
 
         file_name = fname + "_" + lname + "_" + email + ".csv"
+        transactions_file = fname + "_" + lname + "_" + email + "_" + "transactions" ".txt"
 
         if register.validate_user_file(file_name) == True:
             register.generate_user_file(file_name)
+            register.add_user_transactions(transactions_file)
             register.add_user_content(file_name, fname, lname, email, password, phone, address)
             window.close()
             gui_login.login_form()
         else:
             sg.Popup("This user alredy exists, try using your credentials on the login form instead!")
+            window.close()
+            register_form()
 
     if event == 'Back':
         window.close()

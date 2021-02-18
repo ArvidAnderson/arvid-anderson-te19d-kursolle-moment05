@@ -8,6 +8,17 @@ current_user = []
 
 
 # GETTERS
+def get_transactions_name():
+    transactions = get_current_user()
+    str_creator = " "
+    transactions = str_creator.join(transactions)
+    transactions_modified = transactions.replace("csv", "txt")
+    transactions_modified_list = transactions_modified.split(".")
+    transactions_modified_list.insert(1, "_transactions.")
+    str_creator = ""
+    transactions_modified_str = str_creator.join(transactions_modified_list)
+    return transactions_modified_str
+
 def generate_list(file_name):
     with open(file_name, "r") as f:
         csv_list = f.read()
@@ -64,6 +75,9 @@ def get_current_user_str():
     file_name = str_creator.join(current_user_list)
     return file_name
 
+def get_user_transactions(file_name):
+    print(file_name)
+
 # SETTERS
 def set_current_user(file_name):
     current_user.append(file_name)
@@ -91,3 +105,12 @@ def withdraw_balance(file_name, amount):
         f.truncate()
         file = csv.writer(f)
         file.writerow(csv_list)
+
+def add_withdrawal_transaction(transactions_name, amount):
+    with open(transactions_name, "a") as f:
+        f.write("Withdrawal of ${} \n".format(amount))
+
+def add_deposit_transaction(transactions_name, amount):
+    with open(transactions_name, "a") as f:
+        f.write("Deposit of ${} \n".format(amount))
+
