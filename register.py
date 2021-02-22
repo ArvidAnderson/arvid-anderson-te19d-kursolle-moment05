@@ -10,7 +10,7 @@ def generate_user_file(file_name):
 def add_user_content(file_name, fname, lname, email, password, phone, address):
     with open(file_name, "a") as f:
         file = csv.writer(f)
-        file.writerow([fname, lname, email, password, phone, address, "0"])
+        file.writerow([fname, lname, email, password, phone, address, "1000"])
 
 def add_user_transactions(transactions_file):
     with open(transactions_file, "a") as f:
