@@ -28,6 +28,7 @@ def login_form():
             window.close()
             gui_profile.profile_page()
         else:
+            window.close()
             sg.Popup("Login failed, please try again with the right credentials")
             login_form()
 
